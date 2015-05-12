@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Location.h"
 
 @interface LocationDetailViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -17,5 +18,6 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 // Create a proxy property to receive the object passed from LocationListViewController.
+@property (strong, nonatomic) Location *passedLocation;
 
 @end

@@ -82,16 +82,22 @@
     if([segue.identifier isEqualToString:ADDLOCATION])
     {
         // Set an AddLocationViewController object to the segue's destination view controller.
-        // Set the delegate property of AddLocationViewController to self.
         AddLocationViewController *alvc = (AddLocationViewController *)segue.destinationViewController;
+        // Set the delegate property of AddLocationViewController to self.
         alvc.delegate = self;
     }
     
     else if([segue.identifier isEqualToString:LOCATION])
     {
         // Create a pointer to an NSIndexPath object and assign the sender variable to it.
+        NSIndexPath *indexPath = sender;
+        
+        //NSIndexPath *path = [_tableView indexPathForSelectedRow];
         // Get the object at the index of the array according to the indexPath.row.
+        Location *selectedLocation = _locations[indexPath.row];
         // Assign that object to a proxy property located in LocationDetailViewController that corresponds to the same type. This will allows us to pass that entire object and display the location for that object.
+        LocationDetailViewController *ldvc = (LocationDetailViewController *)segue.destinationViewController;
+        ldvc.passedLocation = selectedLocation;
     }
 }
 
