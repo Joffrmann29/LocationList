@@ -26,6 +26,9 @@
     _tableView.dataSource = self;
     
     _locations = [[NSMutableArray alloc]init];
+    
+    id delegate = [UIApplication sharedApplication].delegate;
+    [delegate managedObjectContext];
 }
 
 - (void)didReceiveMemoryWarning {
