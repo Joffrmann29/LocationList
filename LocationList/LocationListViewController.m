@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Nutech. All rights reserved.
 //
 
+#pragma segue identifier defines
+
 #define LOCATION @"toLocationDetail"
 #define ADDLOCATION @"toAddLocation"
 
@@ -23,7 +25,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    _locations = [NSMutableArray array];
+    _locations = [[NSMutableArray alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +44,10 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
+    Location *locationToDisplay = _locations[indexPath.row];
     
+    cell.textLabel.text = locationToDisplay.name;
+    cell.detailTextLabel.text = locationToDisplay.address;
     
     return cell;
 }
@@ -52,12 +57,34 @@
     [self performSegueWithIdentifier:LOCATION sender:indexPath];
 }
 
+-(void)addLocation:(Location *)location
+{
+    [_locations addObject:location];
+    [_tableView reloadData];
+    
+    NSString *messageString = [NSString stringWithFormat:@"Your new location, %@ has been added", location.name];
+    
+    if(location != nil)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Success" message:messageString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
+    
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Your location failed to be added"     delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:ADDLOCATION])
     {
         // Set an AddLocationViewController object to the segue's destination view controller.
         // Set the delegate property of AddLocationViewController to self.
+        AddLocationViewController *alvc = (AddLocationViewController *)segue.destinationViewController;
+        alvc.delegate = self;
     }
     
     else if([segue.identifier isEqualToString:LOCATION])

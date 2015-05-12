@@ -53,6 +53,7 @@
 		B4FA62C71B024ABB00C9016C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B4FA62C91B02546E00C9016C /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		B4FA62CA1B02546E00C9016C /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		B4FA62CC1B025C7B00C9016C /* AddLocationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddLocationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +109,7 @@
 				B4FA62C01B0246F500C9016C /* AddLocationViewController.m */,
 				B4FA62C21B02499D00C9016C /* LocationDetailViewController.h */,
 				B4FA62C31B02499D00C9016C /* LocationDetailViewController.m */,
+				B4FA62CC1B025C7B00C9016C /* AddLocationDelegate.h */,
 				B4FA62A31B02447300C9016C /* Main.storyboard */,
 				B4FA62A61B02447300C9016C /* Images.xcassets */,
 				B4FA62A81B02447300C9016C /* LaunchScreen.xib */,

@@ -10,9 +10,9 @@
 
 @interface Location : NSObject
 
-@property (weak, nonatomic) NSString *name;
-@property (weak, nonatomic) NSString *address;
-@property (weak, nonatomic) NSString *descriptionString;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) NSString *descriptionString;
 
 -(id)initWithName:(NSString *)name andAddress:(NSString *)address andDescription:(NSString *)descriptionString;
 

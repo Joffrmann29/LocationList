@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddLocationDelegate.h"
 
-@interface AddLocationViewController : UIViewController
+@interface AddLocationViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>
+
+
+@property (weak, nonatomic) id <AddLocationDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UITextField *addressField;
